@@ -6,7 +6,7 @@ def generate_mad_lib(adjective, noun, verb):
 
 def guessing_game():
     """Run an interactive number-guessing game."""
-    secret_number = random.radint (1, 100)
+    secret_number = random.randint (1, 100)
 
     while True:
         guess = int(input("Enter your guess: "))
