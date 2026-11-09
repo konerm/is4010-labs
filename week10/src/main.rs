@@ -43,9 +43,8 @@ fn problem_1() {
     println!("The length of '{}' is {}.", s1, len);
 }
 
-fn calculate_length(s: &String) -> usize {
-    let length = s.len();
-    length
+fn calculate_length(s: &str) -> usize {
+    s.len()
 }
 
 // ============================================================================
@@ -122,8 +121,7 @@ fn problem_5() {
 }
 
 fn create_string() -> String {
-    let s = String::from("hello");
-    s
+    String::from("hello")
 }
 
 // ============================================================================
