@@ -40,14 +40,13 @@ fn problem_1() {
     println!("Problem 1: Value used after move");
     let s1 = String::from("hello");
     let len = calculate_length(&s1);
-    println!("The length of '{}' is {}.",s1, len);
+    println!("The length of '{}' is {}.", s1, len);
 }
 
 fn calculate_length(s: &String) -> usize {
     let length = s.len();
     length
 }
-
 
 // ============================================================================
 // PROBLEM 2: Immutable and mutable borrow conflict
@@ -61,12 +60,11 @@ fn calculate_length(s: &String) -> usize {
 fn problem_2() {
     println!("Problem 2: Mutable and immutable borrow conflict");
     let mut s = String::from("hello");
-    let r1 = &s;      // immutable borrow
+    let r1 = &s; // immutable borrow
     println!("{}", r1);
-   let r2 = &mut s;
-   println!("{}", r2);
+    let r2 = &mut s;
+    println!("{}", r2);
 }
-
 
 // ============================================================================
 // PROBLEM 3: Mutating through an immutable reference
@@ -88,7 +86,6 @@ fn add_to_string(s: &mut String) {
     s.push_str(", world");
 }
 
-
 // ============================================================================
 // PROBLEM 4: Multiple mutable borrows
 // ============================================================================
@@ -101,14 +98,13 @@ fn add_to_string(s: &mut String) {
 fn problem_4() {
     println!("Problem 4: Multiple mutable borrows");
     let mut s = String::from("hello");
-{
-    let r1 = &mut s;
-   println!("{}", r1);
+    {
+        let r1 = &mut s;
+        println!("{}", r1);
+    }
+    let r2 = &mut s;
+    println!("{}", r2);
 }
-let r2 = &mut s;
-println!("{}", r2);
-}
-
 
 // ============================================================================
 // PROBLEM 5: Dangling reference
@@ -127,9 +123,8 @@ fn problem_5() {
 
 fn create_string() -> String {
     let s = String::from("hello");
- s 
+    s
 }
-
 
 // ============================================================================
 // PROBLEM 6: Ownership in loops
@@ -153,7 +148,6 @@ fn print_with_number(s: &String, n: i32) {
     println!("  {}: {}", n, s);
 }
 
-
 // ============================================================================
 // PROBLEM 7: lifetime, reference doesn't live long enough
 // ============================================================================
@@ -166,14 +160,12 @@ fn print_with_number(s: &String, n: i32) {
 fn problem_7() {
     println!("Problem 7: Lifetime extension");
     let s = String::from("inner scope");
-   let result;
+    let result;
     {
-        
         result = &s; // ERROR: `s` is dropped at end of this block
     }
     println!("  Result: {}", result);
 }
-
 
 // ============================================================================
 // PART 2: implementation exercises
@@ -186,7 +178,7 @@ fn problem_7() {
 ///
 /// Demonstrates: move in, transform, move out ("consume and return" pattern).
 pub fn to_uppercase_owned(_s: String) -> String {
-   _s.to_uppercase()
+    _s.to_uppercase()
 }
 
 /// Borrows a String immutably and returns its length.
@@ -194,21 +186,21 @@ pub fn to_uppercase_owned(_s: String) -> String {
 /// Demonstrates: read-only borrowing.
 #[allow(clippy::ptr_arg)]
 pub fn string_length(_s: &String) -> usize {
-   _s.len()
+    _s.len()
 }
 
 /// Borrows a String mutably and appends `suffix` to it in place.
 ///
 /// Demonstrates: in-place mutation through a mutable borrow.
 pub fn append_suffix(_s: &mut String, _suffix: &str) {
-   _s.push_str(_suffix);
+    _s.push_str(_suffix);
 }
 
 /// Creates a new owned String by concatenating two borrowed string slices.
 ///
 /// Demonstrates: producing owned data from borrowed inputs.
 pub fn concat_strings(_s1: &str, _s2: &str) -> String {
-   format!("{}{}", _s1, _s2)
+    format!("{}{}", _s1, _s2)
 }
 
 // ============================================================================
