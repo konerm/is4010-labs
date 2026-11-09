@@ -186,7 +186,7 @@ fn problem_7() {
 ///
 /// Demonstrates: move in, transform, move out ("consume and return" pattern).
 pub fn to_uppercase_owned(_s: String) -> String {
-    todo!("Implement to_uppercase_owned, hint: .to_uppercase()")
+   _s.to_uppercase()
 }
 
 /// Borrows a String immutably and returns its length.
@@ -194,21 +194,21 @@ pub fn to_uppercase_owned(_s: String) -> String {
 /// Demonstrates: read-only borrowing.
 #[allow(clippy::ptr_arg)]
 pub fn string_length(_s: &String) -> usize {
-    todo!("Implement string_length, hint: .len()")
+   _s.len()
 }
 
 /// Borrows a String mutably and appends `suffix` to it in place.
 ///
 /// Demonstrates: in-place mutation through a mutable borrow.
 pub fn append_suffix(_s: &mut String, _suffix: &str) {
-    todo!("Implement append_suffix, hint: .push_str()")
+   _s.push_str(_suffix);
 }
 
 /// Creates a new owned String by concatenating two borrowed string slices.
 ///
 /// Demonstrates: producing owned data from borrowed inputs.
 pub fn concat_strings(_s1: &str, _s2: &str) -> String {
-    todo!("Implement concat_strings, hint: format!() or String::from() + push_str()")
+   format!("{}{}", _s1, _s2)
 }
 
 // ============================================================================
